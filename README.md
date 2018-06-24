@@ -29,10 +29,12 @@ Caddyfile is config file to customize how your site is served
 index.html is base file with Hello world
 
 To build the image run the below command
-docker build -t helix_caddyimage .
+
+    docker build -t helix_caddyimage .
 
 To run the container please run
-docker run -d -p 80:80 -p 443:443 -p 2015:2015 --name helix_image helix_caddyimage
+
+    docker run -d -p 80:80 -p 443:443 -p 2015:2015 --name helix_image helix_caddyimage
 
 To hit the URL please use the HOST ipaddress.
 
@@ -52,17 +54,18 @@ Caddyfile has the following entries
 
        localhost {
 
-  root /home/appuser/caddy/app
-  log /var/log/caddy/access.log
-  errors /var/log/caddy/errors.log
-  gzip
-  push
-  browse
-  ext    .html
+              root /home/appuser/caddy/app
+               
+             log /var/log/caddy/access.log
+             errors /var/log/caddy/errors.log
+             gzip
+             push
+             browse
+             ext    .html
+   
+              proxy  /api 127.0.0.1:7005
+              header /api Access-Control-Allow-Origin *
 
-proxy  /api 127.0.0.1:7005
-header /api Access-Control-Allow-Origin *
-
-}
+             }
 
 when you hit the URL it  will serve using the https but with an unsigned cert.
