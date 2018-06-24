@@ -40,12 +40,12 @@ To hit the URL please use the HOST ipaddress.
 
 Some of the commands used are explained/commented in the Dockerfile
 
-used setcap cap_net_bind_service=+ep which tells, caddy is allowed to run as non-root user and use  port 80(http) and 443(https)
+used `setcap cap_net_bind_service=+ep` which tells, caddy is allowed to run as non-root user and use  port 80(http) and 443(https)
 which are administraive ports.
 
 
-Logs requests to an access log which is /var/log/access.log and errors to  /var/log/error.log
-Proxies all API and adds the coveted Access-Control-Allow-Origin: * header for all responses from the API.
+Logs requests to an access log which is `/var/log/access.log and errors to  /var/log/error.log`
+Proxies all API and adds the coveted `Access-Control-Allow-Origin: *` header for all responses from the API.
 
 Also, i am not creating the SSL cert  but this can be implemented if you have  registered domain and can create the ssl cert using the free
 letsencrypt certs.
