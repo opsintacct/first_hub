@@ -1,7 +1,7 @@
 # first_hub
 First repo
 
-# CADDY
+# Build a CADDY Docker Server
 
 
 A Docker image for Caddy.
